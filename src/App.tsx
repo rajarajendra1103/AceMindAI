@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { Dashboard } from './components/Dashboard';
 import { DocumentUpload } from './components/DocumentUpload';
 import { DocumentViewer } from './components/DocumentViewer';
@@ -218,7 +219,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header 
         currentView={currentView}
         onViewChange={handleViewChange}
@@ -226,7 +227,7 @@ function App() {
         onLogout={handleLogout}
       />
 
-      <main className="py-8">
+      <main className="flex-1 py-8">
         {currentView === 'home' && (
           <Dashboard
             documents={documents}
@@ -300,6 +301,8 @@ function App() {
           />
         )}
       </main>
+
+      <Footer />
     </div>
   );
 }
